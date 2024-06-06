@@ -1,46 +1,125 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <nav className="bg-orange-500 border-gray-200">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span>
-                    </a>
-                    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Get started</button>
-                        <button data-collapse-toggle="navbar-cta" type="button" onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-cta" aria-expanded="false">
-                            <span className="sr-only">Open main menu</span>
-                            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                            </svg>
-                        </button>
+            <div className="relative w-full bg-orange-400">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
+                    <div className="inline-flex items-center space-x-2">
+                        <span className="font-bold">DevUI</span>
                     </div>
-                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                        {isOpen && (
-                            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-orange-500">
+                    <div className="hidden grow items-start lg:flex">
+                        <ul className="ml-12 inline-flex space-x-8">
                             <li>
-                                <a href="#" className="block py-2 px-3 md:p-0 text-white rounded" aria-current="page">Home</a>
+                                <a
+                                    href="#"
+                                    className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    Home
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="block py-2 px-3 md:p-0 text-white rounded hover:text-black">About</a>
+                                <a
+                                    href="#"
+                                    className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    About
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="block py-2 px-3 md:p-0 text-white rounded hover:text-black">Services</a>
-                            </li>
-                            <li>
-                                <a href="#" className="block py-2 px-3 md:p-0 text-white rounded hover:text-black">Contact</a>
+                                <a
+                                    href="#"
+                                    className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    Contact
+                                </a>
                             </li>
                         </ul>
-                        )}
-                        
+                    </div>
+                    <div className="hidden space-x-2 lg:block">
+                        <button
+                            type="button"
+                            className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        >
+                            Sign In
+                        </button>
+                        <button
+                            type="button"
+                            className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        >
+                            Log In
+                        </button>
+                    </div>
+
+                    <div className="lg:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-6 w-6 cursor-pointer"
+                            onClick={() => { setIsOpen(!isOpen) }}
+                        >
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="4" y1="18" x2="20" y2="18"></line>
+                        </svg>
                     </div>
                 </div>
-            </nav>
 
+                {isOpen && (
+                    <div className="lg:hidden px-5 pb-3">
+                        <ul className="space-y-2">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block text-sm font-semibold text-gray-800 hover:text-red-500"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    className="w-full rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10"
+                                >
+                                    Sign In
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm"
+                                >
+                                    Log In
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                )}
+            </div>
         </>
-    )
+    );
 }
